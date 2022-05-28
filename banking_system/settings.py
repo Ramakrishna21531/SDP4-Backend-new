@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -80,26 +80,26 @@ WSGI_APPLICATION = 'banking_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
-        
-#         'ENGINE': 'django.db.backends.postgresql',
-#         # 'HOST': '104.155.152.226',
-#         'HOST': '127.0.0.1',
-#         'USER': 'postgres',
-#         'PASSWORD': 'rama',
-#         'NAME': 'sdp4f',
-#         'PORT':'5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'HOST': '104.155.152.226',
+        'HOST': 'database1244.postgres.database.azure.com',
+        'USER': 'admin1244@database1244',
+        'PASSWORD': 'Motorola1234',
+        'NAME': 'postgres',
+        'PORT':'5432',
+    }
+}
 
 
 # Password validation
@@ -139,7 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 ACCOUNT_NUMBER_START_FROM = 1000000000
 MINIMUM_DEPOSIT_AMOUNT = 10
 MINIMUM_WITHDRAWAL_AMOUNT = 10
