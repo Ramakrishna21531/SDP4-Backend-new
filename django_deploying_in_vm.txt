@@ -1,0 +1,16 @@
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install python3-venv -y
+python3 -m venv env
+cd env
+source env/bin/activate
+pip3 install django
+git clone "https://github.com/Ramakrishna21531/SDP4-Backend-new.git"
+cd SDP4-Backend-new
+pip3 install gunicorn
+sudo apt-get install -y nginx
+sudo nginx
+python3 -m pip install -r requirements.txt
+pip3 install psycopg2-binary
+gunicorn --bind 0.0.0.0:8000 banking_system.wsgi:application
+
